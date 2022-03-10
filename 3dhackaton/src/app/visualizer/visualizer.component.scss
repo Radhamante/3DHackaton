@@ -1,3 +1,5 @@
+@import "src/app/app.component";
+
 h1 {
   margin-top: 2vh;
   text-align: center;
@@ -5,4 +7,27 @@ h1 {
 }
 h2 {
   text-align: center;
+}
+
+
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+
+.mat-progress-bar {
+  width: 80vw;
+  margin: auto;
+
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: $tanLight;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: $tan;
+}
+
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
 }

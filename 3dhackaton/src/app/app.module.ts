@@ -18,6 +18,7 @@ import {MatListModule} from "@angular/material/list";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VisualizerComponent } from './visualizer/visualizer.component';
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatCardModule,
     MatListModule,
     FontAwesomeModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

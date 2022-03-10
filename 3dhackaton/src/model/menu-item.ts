@@ -10,5 +10,8 @@ export class MenuItem {
   constructor(id: number, title: string, steps: MenuItemStep[] | null) {
     this.id = id;
     this.title = title;
+    if(steps){
+      this.steps = steps;
+    }
   }
 }
