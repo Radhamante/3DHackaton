@@ -10,6 +10,7 @@ import {Category} from "../../model/category";
 })
 export class QuestionsComponent implements OnInit {
   categories: Category[] = CategoriesConstants.CATEGORIES;
+  question: any;
   constructor() { }
 
   ngOnInit(): void {

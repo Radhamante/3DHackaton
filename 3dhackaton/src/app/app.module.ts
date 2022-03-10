@@ -13,11 +13,13 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDividerModule} from "@angular/material/divider";
 import { QuestionsComponent } from './questions/questions.component';
 import {MatCardModule} from "@angular/material/card";
+import { QuestionItemComponent } from './question-item/question-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    QuestionItemComponent
   ],
   imports: [
     BrowserModule,
