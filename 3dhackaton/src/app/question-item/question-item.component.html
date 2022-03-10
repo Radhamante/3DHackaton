@@ -5,13 +5,20 @@
       <h1>{{category.title}}</h1>
     </div>
   </div>
+
   <div class="row m-0 p-0">
     <h2 class="containerTitle">Choisissez votre rubrique</h2>
-  </div>
-  <div class="row m-0 p-0">
-    <mat-selection-list #shoes [multiple]="false">
+    <mat-selection-list #item [multiple]="false">
       <mat-list-option *ngFor="let item of category.items" [value]="item">
-        {{item.title}}
+        <div>
+          <p class="leftLabel">
+            {{item.title}}
+          </p>
+          <p class="rightLabel">
+            Commencer
+          </p>
+        </div>
+
       </mat-list-option>
     </mat-selection-list>
   </div>

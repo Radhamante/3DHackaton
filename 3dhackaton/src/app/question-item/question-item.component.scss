@@ -1,3 +1,4 @@
+@import "src/app/app.component";
 .container {
   max-width: 100% !important;
   width: 100% !important;
@@ -12,7 +13,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 70vh;
+  min-height: 50vh;
   padding-right: 0;
   padding-left: 0;
   -webkit-box-pack: center;
@@ -43,4 +44,32 @@ h1 {
   margin-top: 20px;
   text-align: center;
   font-size: 25px;
+}
+
+.mat-list-option{
+  margin: auto;
+  width: 80vw !important;
+  color: white;
+  background-color: $tan;
+  margin-top: 2vh;
+  border-radius: 5px;
+}
+.mat-list-option:hover {
+  box-shadow: 5px 5px 15px -1px  $grey;
+}
+
+.leftLabel{
+  display: inline-block;
+  text-align: left;
+  width: 49%;
+  margin: 0;
+  padding: 0;
+}
+
+.rightLabel{
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+  margin: 0;
+  padding: 0;
 }
