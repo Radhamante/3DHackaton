@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Constants} from "../../model/constants";
 import {CategoriesConstants} from "../../model/categories-constants";
 import {Category} from "../../model/category";
 import {Router} from "@angular/router";
