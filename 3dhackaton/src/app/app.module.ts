@@ -11,6 +11,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {MatButtonModule} from "@angular/material/button";
     MatSidenavModule,
     NgbModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+@import "src/app/app.component";
+
 .companyName{
   font-size: 150%;
 }
@@ -11,7 +13,6 @@ div {
 }
 
 .mat-sidenav-container{
-  background-color: lightskyblue;
   min-height: 93vh !important;
 }
 
@@ -40,3 +41,63 @@ button{
 }
 
 
+.mat-toolbar.mat-primary{
+  background-color: transparent;
+}
+#menu{
+  color: $tan;
+}
+
+@media screen and (min-width: 900px) {
+  #toggler {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .mat-sidenav {
+    width: 250px;
+    border: none;
+    box-shadow: 5px 3px 15px -3px rgba(184,159,148,0.6);
+  }
+
+}
+
+.mat-divider{
+  margin-bottom: 12px;
+}
+
+p {
+  cursor: pointer;
+}
+p:hover {
+  color: $tan;
+}
+.mat-expansion-panel-header:hover{
+  background-color: $tan!important;
+  color: white!important;
+}
+
+.mat-expansion-panel-header{
+  height: 50px;
+  color: white;
+  margin-bottom: 12px;
+}
+mat-expansion-panel-header:hover {
+  .mat-expansion-panel-header-title{
+    color: white;
+  }
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  background-color: $tan!important;
+  .mat-expansion-panel-header-title{
+    color: white;
+  }
+}
+.mat-accordion .mat-expansion-panel:last-of-type, .mat-accordion .mat-expansion-panel:last-of-type{
+  border-radius: 0!important;
+}
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+  color: white;
+}

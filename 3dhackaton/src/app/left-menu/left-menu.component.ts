@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./left-menu.component.scss']
 })
 export class LeftMenuComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

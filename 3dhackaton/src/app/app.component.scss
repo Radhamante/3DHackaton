@@ -17,5 +17,11 @@ a img {
 }
 
 .mat-toolbar{
+  position: relative;
+  z-index: 2;
   background-color: white;
+  box-shadow: 255px 5px 15px -3px rgba(184,159,148,0.60);
+}
+@media screen and (min-width: 900px) {
+
 }

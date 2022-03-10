@@ -1,15 +1,29 @@
 <div>
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary"  id="toggler">
     <div fxShow="true" fxHide.gt-sm="true">
       <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon id="menu">menu</mat-icon>
       </button>
     </div>
   </mat-toolbar>
   <mat-sidenav-container  class="example-container">
-    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+    <mat-sidenav color="primary" #sidenav fxLayout="column" mode="side" opened="true" fxHide.gt-sm="true">
       <div fxLayout="column">
-        <a mat-button routerLink="/contact">Tmp menu</a>
+        <mat-accordion>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Self aware panel
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+            <mat-divider></mat-divider>
+            <p>Test trop bien</p>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
     </mat-sidenav>
   </mat-sidenav-container>
