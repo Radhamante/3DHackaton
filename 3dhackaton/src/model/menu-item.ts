@@ -7,7 +7,7 @@ export class MenuItem {
   title: string;
   steps: MenuItemStep[] = [];
 
-  constructor(id: number, title: string) {
+  constructor(id: number, title: string, steps: MenuItemStep[] | null) {
     this.id = id;
     this.title = title;
   }

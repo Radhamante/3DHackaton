@@ -9,8 +9,10 @@
   <div class="row m-0 p-0">
     <h2 class="containerTitle">Choisissez votre rubrique</h2>
     <mat-selection-list #item [multiple]="false">
+
+      <!-- since its a POC, we only let the first item available to consult, more to come later in a paid DLC -->
       <mat-list-option *ngFor="let item of category.items; let index = index" [value]="item" [ngClass]="index%2 == 1 ? 'eventOption' : ''"
-        (click)="selectQuestion(item.id)"
+        (click)="selectQuestion(item.id)" [disabled]="item.id !== 1"
       >
         <div>
           <p class="leftLabel">

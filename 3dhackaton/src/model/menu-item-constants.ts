@@ -1,29 +1,30 @@
 import {MenuItem} from "./menu-item";
+import {MenuItemStepConstants} from "./menu-item-step-constans";
 
 export class MenuItemConstants {
 
   //WHEEL RELATED MENU ITEMS
-  public static REMOVE_FRONT_WHEEL = new MenuItem(1, "Démonter la roue avant");
-  public static REMOVE_REAR_WHEEL = new MenuItem(2, "Démonter la roue arrière");
-  public static CHANGE_TIRE = new MenuItem(3, "Changer un pneu");
-  public static PRESSURE_CHECK = new MenuItem(4, "Vérifier la pression d'un pneu");
-  public static TIRE_CHECK = new MenuItem(5, "Vérifier l'état d'un pneu");
+  public static REMOVE_FRONT_WHEEL = new MenuItem(1, "Démonter la roue avant", MenuItemStepConstants.WHEEL_REMOVAL);
+  public static REMOVE_REAR_WHEEL = new MenuItem(2, "Démonter la roue arrière", null);
+  public static CHANGE_TIRE = new MenuItem(3, "Changer un pneu", null);
+  public static PRESSURE_CHECK = new MenuItem(4, "Vérifier la pression d'un pneu", null);
+  public static TIRE_CHECK = new MenuItem(5, "Vérifier l'état d'un pneu", null);
 
   //LIGHTING RELATED MENU ITEMS
-  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare");
-  public static CHANGE_BLINKER = new MenuItem(7, "Changer le clignotant");
-  public static CHANGE_BRAKE_LIGHT = new MenuItem(8, "Changer les feux stop");
-  public static CHANGE_FOG_LIGHT = new MenuItem(9, "Changer l'antibrouillard");
+  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare", null);
+  public static CHANGE_BLINKER = new MenuItem(7, "Changer le clignotant", null);
+  public static CHANGE_BRAKE_LIGHT = new MenuItem(8, "Changer les feux stop", null);
+  public static CHANGE_FOG_LIGHT = new MenuItem(9, "Changer l'antibrouillard", null);
 
   //DIRECTION RELATED MENU ITEMS
-  public static CHANGE_BEARING = new MenuItem(10, "Changer les roulements");
-  public static CHECK_ALIGNMENT = new MenuItem(11, "Vérifier l'alignement");
+  public static CHANGE_BEARING = new MenuItem(10, "Changer les roulements", null);
+  public static CHECK_ALIGNMENT = new MenuItem(11, "Vérifier l'alignement", null);
 
 
   //OTHER
-  public static CHANGE_REARVIEW_MIRROR = new MenuItem(12, "Changer un rétroviseur");
-  public static OPEN_TRUNK = new MenuItem(13, "Ouvrir le coffre");
-  public static CONTACT_US = new MenuItem(14, "Nous contacter");
+  public static CHANGE_REARVIEW_MIRROR = new MenuItem(12, "Changer un rétroviseur", null);
+  public static OPEN_TRUNK = new MenuItem(13, "Ouvrir le coffre", null);
+  public static CONTACT_US = new MenuItem(14, "Nous contacter", null);
 
   public static WHEEL = [
     MenuItemConstants.REMOVE_FRONT_WHEEL,

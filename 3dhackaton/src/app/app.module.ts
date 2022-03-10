@@ -17,29 +17,31 @@ import { QuestionItemComponent } from './question-item/question-item.component';
 import {MatListModule} from "@angular/material/list";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VisualizerComponent } from './visualizer/visualizer.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionsComponent,
     QuestionItemComponent,
-    VisualizerComponent
+    VisualizerComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        NgbModule,
-        MatIconModule,
-        MatButtonModule,
-        MatExpansionModule,
-        MatDividerModule,
-        MatCardModule,
-        MatListModule,
-        FontAwesomeModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    NgbModule,
+    MatIconModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatCardModule,
+    MatListModule,
+    FontAwesomeModule,
+    MatStepperModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
