@@ -16,12 +16,14 @@ import {MatCardModule} from "@angular/material/card";
 import { QuestionItemComponent } from './question-item/question-item.component';
 import {MatListModule} from "@angular/material/list";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { VisualizerComponent } from './visualizer/visualizer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionsComponent,
-    QuestionItemComponent
+    QuestionItemComponent,
+    VisualizerComponent
   ],
     imports: [
         BrowserModule,
