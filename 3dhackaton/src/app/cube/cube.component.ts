@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import * as THREE from "three"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
@@ -15,6 +15,10 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
   styleUrls: ['./cube.component.scss']
 })
 export class CubeComponent implements OnInit, AfterViewInit {
+
+  public testInt: number = 0;
+
+  @Input() testInput: any;
 
   @ViewChild('canvas')
   private canvasRef!: ElementRef;
@@ -58,6 +62,12 @@ export class CubeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.createscene()
     this.startRenderingLoop()
+
+
+    this.testInput.addEventListener
+    /*this.testInput.onChange( ($event: any) => {
+        console.log($event);
+    });*/
   }
 
   pauseAnim(): void {
@@ -76,31 +86,23 @@ export class CubeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes && changes['testInput'] && changes['testInput'].previousValue) {
+      console.log(changes['testInput'])
+      if(changes['testInput'].previousValue['id'] < changes['testInput'].currentValue['id']){
+        this.nextAnim();
+      } else if(changes['testInput'].previousValue['id'] > changes['testInput'].currentValue['id']) {
+        this.prevAnim();
+      }
+    }
+  }
+
   private createscene () {
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
 
     // Scene
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xEEEEEE)
-
-    /**
-     * Sizes
-     */
-    const sizes = {width:window.innerWidth,height:window.innerHeight}
-
-    /*window.addEventListener('resize', () =>
-    {
-        // Save sizes
-        sizes.width = window.innerWidth
-        sizes.height = window.innerHeight
-
-        // Update renderer
-        this.renderer.setSize(sizes.width, sizes.height)
-
-        // Update camera
-        this.camera.aspect = sizes.width / sizes.height
-        this.camera.updateProjectionMatrix()
-    })*/
+    this.scene.background = new THREE.Color(0xF9F9F9)
 
 
     /** Lights **/
@@ -142,15 +144,10 @@ export class CubeComponent implements OnInit, AfterViewInit {
         let clock: THREE.Clock = new THREE.Clock();
         let mixer = new THREE.AnimationMixer( gltf.scene );
 
-        console.log(gltf.animations[1])
-
         gltf.animations.forEach( ( clip ) => {
           mixer.clipAction( clip ).play();
-          console.log(clip)
 
           mixer.addEventListener( 'loop', ( e ) => {
-            console.log(clip)
-            console.log("loop")
             this.stepIndex = 0
           } );
 
@@ -180,8 +177,6 @@ export class CubeComponent implements OnInit, AfterViewInit {
                 this.prevAnimEnable = true
               }
             }
-
-            console.log(this.stepIndex)
 
             mixer.clipAction(clip).paused = this.paused
             mixer.timeScale = this.direction

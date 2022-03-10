@@ -1,14 +1,18 @@
-<div class="row">
+<div class="row p-0 m-0">
   <div class="col-12">
-    <h1>{{menuItem.title}}</h1>
+   <h1>{{menuItem.title}}</h1>
     <h2>Étape n° {{currentStepIndex+1}}: {{currentStep.title}}</h2>
     <mat-progress-bar mode="determinate"value="{{((currentStepIndex + 1)  / (menuItem.steps.length) * 100) }}" ></mat-progress-bar>
-    <div style="width: 50%; height: 50%">
-      <app-cube></app-cube>
-
+    <div class="mainVisualizer">
+      <app-cube [testInput]="currentStep"></app-cube>
     </div>
-    <h2>Description de l'étape: </h2>
-    <p>{{currentStep.description}}</p>
-
+    <div class="description">
+      <h2>Description de l'étape: </h2>
+      <p>{{currentStep.description}}</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-tan leftButton" (click)="previousStep()" [disabled]="currentStepIndex === 0">Étape précédente</button>
+      <button class="btn btn-tan" (click)="nextStep() " [disabled]="currentStepIndex == menuItem.steps.length">Étape suivante</button>
+    </div>
   </div>
 </div>

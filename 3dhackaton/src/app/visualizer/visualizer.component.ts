@@ -23,11 +23,13 @@ export class VisualizerComponent implements OnInit {
   }
 
   nextStep(): void {
-
-    //todo
+    this.currentStepIndex++;
+    console.log(this.currentStepIndex)
+    this.currentStep = this.menuItem.steps[this.currentStepIndex];
   }
   previousStep(): void{
-    //todo
+    this.currentStepIndex--;
+    this.currentStep = this.menuItem.steps[this.currentStepIndex];
   }
 
 }

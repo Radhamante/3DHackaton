@@ -5,19 +5,19 @@ h1 {
   text-align: center;
   font-size: 30px;
 }
+
 h2 {
   text-align: center;
 }
 
 
-::ng-deep .mat-horizontal-stepper-header{
+::ng-deep .mat-horizontal-stepper-header {
   pointer-events: none !important;
 }
 
 .mat-progress-bar {
-  width: 80vw;
+  width: 60vw;
   margin: auto;
-
 }
 
 ::ng-deep .mat-progress-bar-fill::after {
@@ -30,4 +30,56 @@ h2 {
 
 ::ng-deep .mat-progress-bar {
   border-radius: 2px;
+}
+
+.mainVisualizer {
+  margin: auto;
+  margin-top: 2vh;
+  width: 60vw;
+  border-radius: 20px;
+}
+
+.description {
+  width: 60vw;
+  margin: auto;
+  margin-top: 3vh;
+  text-align: center;
+}
+
+.buttons {
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+}
+
+.leftButton {
+  margin-right: 20px;
+}
+
+
+@media screen and (max-width: 992px) {
+  .mainVisualizer {
+    width: 90vw;
+  }
+  .mat-progress-bar {
+    width: 90vw;
+  }
+  .buttons {
+    width: 90vw;
+  }
+
+  .description {
+    width: 90vw;
+  }
+}
+
+.btn-tan {
+  background-color: $tan;
+  width: 200px;
+  height: 50px;
+  color: white;
+}
+
+.btn-tan:hover {
+  background-color: $tanLight;
 }
