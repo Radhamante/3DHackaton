@@ -3,6 +3,7 @@ import {MenuItem} from "../../model/menu-item";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Category} from "../../model/category";
 import {CategoriesConstants} from "../../model/categories-constants";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight"
 
 @Component({
   selector: 'app-question-item',
@@ -14,6 +15,7 @@ export class QuestionItemComponent implements OnInit {
   public category: Category = CategoriesConstants.getById(this.categoryId);
   @Input() item: MenuItem | undefined;
   constructor(private router: Router, private route: ActivatedRoute) { }
+  public chevronRight: any = faChevronRight;
 
   ngOnInit(): void {
       console.log(this.category)

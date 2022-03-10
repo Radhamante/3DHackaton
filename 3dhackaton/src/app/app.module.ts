@@ -15,6 +15,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import {MatCardModule} from "@angular/material/card";
 import { QuestionItemComponent } from './question-item/question-item.component';
 import {MatListModule} from "@angular/material/list";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatListModule} from "@angular/material/list";
         MatExpansionModule,
         MatDividerModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        FontAwesomeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
