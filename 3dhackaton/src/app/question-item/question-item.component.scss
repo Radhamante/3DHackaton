@@ -48,16 +48,23 @@ h1 {
 
 .mat-list-option{
   margin: auto;
-  width: 80vw !important;
+  width: 65vw !important;
   color: white;
   background-color: $tan;
   margin-top: 2vh;
   border-radius: 5px;
 }
+.eventOption {
+  background-color: $grey;
+}
 .mat-list-option:hover {
   box-shadow: 5px 5px 15px -1px  $grey;
 }
 
+
+.eventOption:hover {
+  box-shadow: 5px 5px 15px -1px  $tan !important;
+}
 .leftLabel{
   display: inline-block;
   text-align: left;
