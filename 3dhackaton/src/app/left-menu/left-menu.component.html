@@ -11,17 +11,16 @@
       <div fxLayout="column">
         <mat-accordion>
 
-          <mat-expansion-panel>
+          <mat-expansion-panel *ngFor="let category of categories">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Self aware panel
+                {{category.title}}
               </mat-panel-title>
-              <mat-panel-description>
-              </mat-panel-description>
             </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-            <mat-divider></mat-divider>
-            <p>Test trop bien</p>
+            <div *ngFor="let item of category.items; let index = index">
+              <p>{{item.title}}</p>
+              <mat-divider *ngIf="index !== categories.length-1"></mat-divider>
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
