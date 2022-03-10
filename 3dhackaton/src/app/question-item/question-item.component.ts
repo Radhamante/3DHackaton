@@ -13,12 +13,13 @@ import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight"
 export class QuestionItemComponent implements OnInit {
   private categoryId: number = this.route.snapshot.params['id'];
   public category: Category = CategoriesConstants.getById(this.categoryId);
-  @Input() item: MenuItem | undefined;
   constructor(private router: Router, private route: ActivatedRoute) { }
   public chevronRight: any = faChevronRight;
 
   ngOnInit(): void {
-      console.log(this.category)
   }
 
+  selectQuestion(id: number) {
+    this.router.navigate(["/question/"+id])
+  }
 }
