@@ -5,9 +5,10 @@ export class Category {
   title: string = "";
   items: MenuItem[] = [];
   imageUrl: string = "";
-  constructor(id: number, title: string, url: string) {
+  constructor(id: number, title: string, url: string, items: MenuItem[]) {
     this.id = id;
     this.title = title;
     this.imageUrl = url;
+    this.items = items;
   }
 }
