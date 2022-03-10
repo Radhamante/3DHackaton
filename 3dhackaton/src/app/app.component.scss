@@ -1,0 +1,21 @@
+$tan: #B89F94;
+$grey: #61646C;
+$black: #212126;
+
+
+a img {
+
+  margin-left: 10px;
+  width: 80px;
+  padding-bottom: 5px;
+}
+
+@media screen and (min-width: 1280px){
+  a img {
+    width: 90px;
+  }
+}
+
+.mat-toolbar{
+  background-color: white;
+}
