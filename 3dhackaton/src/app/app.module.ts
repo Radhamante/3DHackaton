@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { VisualizerComponent } from './visualizer/visualizer.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {CubeComponent} from "./cube/cube.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     QuestionsComponent,
     QuestionItemComponent,
     VisualizerComponent,
+    CubeComponent,
   ],
   imports: [
     BrowserModule,

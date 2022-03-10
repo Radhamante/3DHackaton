@@ -1,0 +1,9 @@
+<div style="position:relative ;display:flex; justify-content: center;align-items: center;height: 100%; width: 100%;">
+    <canvas #canvas id="canvas"></canvas>
+
+</div>
+<div>
+  <button #prevAnimEl id ="prevAnimEl" [disabled]="stepIndex == 0" (click)="prevAnim()">Prev</button>
+  <button #stopAnim id ="stopAnim" (click)="pauseAnim()">stop</button>
+  <button #nextAnimEl id ="nextAnimEl" [disabled]="stepIndex == steps.length - 1" (click)="nextAnim()">Next</button>
+</div>
