@@ -11,12 +11,14 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import { CubeComponent } from './cube/cube.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
-    MainDisplayComponent
+    MainDisplayComponent,
+    CubeComponent,
   ],
   imports: [
     BrowserModule,
