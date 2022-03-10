@@ -14,8 +14,8 @@ export class CategoriesConstants {
   ]
 
   public static getById (id: number) {
-    this.CATEGORIES.filter(category => {
-      return category.id === id;
-    })
+    return this.CATEGORIES.filter(category => {
+      return category.id == id;
+    })[0]
   }
 }

@@ -1,14 +1,13 @@
 <div class="container">
 
-  <div class="row" id="header" *ngIf="!question">
+  <div class="row" id="header">
     <div>
       <h1>Service après-vente</h1>
-      <h2>Vous avez une question ? Nous avons la réponse !</h2>
     </div>
   </div>
-  <div class="row boxes" *ngIf="!question">
+  <div class="row boxes">
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 col-xxl-3 box" *ngFor="let category of categories">
-      <mat-card (click)="question = category">
+      <mat-card (click)="openCategory(category.id)">
         <mat-card-header class="title">
           <mat-card-title>{{category.title}}</mat-card-title>
         </mat-card-header>
@@ -16,6 +15,4 @@
         </mat-card>
     </div>
   </div>
-
-  <app-question-item *ngIf="question" [item]="question"></app-question-item>
 </div>

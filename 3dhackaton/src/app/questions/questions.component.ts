@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Constants} from "../../model/constants";
 import {CategoriesConstants} from "../../model/categories-constants";
 import {Category} from "../../model/category";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-questions',
@@ -11,9 +12,12 @@ import {Category} from "../../model/category";
 export class QuestionsComponent implements OnInit {
   categories: Category[] = CategoriesConstants.CATEGORIES;
   question: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  openCategory(id: number) {
+    this.router.navigate(["/categorie/"+id])
+  }
 }

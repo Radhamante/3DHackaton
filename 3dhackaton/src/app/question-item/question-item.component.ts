@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from "../../model/menu-item";
+import {ActivatedRoute, Route, Router} from "@angular/router";
+import {Category} from "../../model/category";
+import {CategoriesConstants} from "../../model/categories-constants";
 
 @Component({
   selector: 'app-question-item',
@@ -7,12 +10,13 @@ import {MenuItem} from "../../model/menu-item";
   styleUrls: ['./question-item.component.scss']
 })
 export class QuestionItemComponent implements OnInit {
-
+  private categoryId: number = this.route.snapshot.params['id'];
+  public category: Category = CategoriesConstants.getById(this.categoryId);
   @Input() item: MenuItem | undefined;
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.item)
+      console.log(this.category)
   }
 
 }

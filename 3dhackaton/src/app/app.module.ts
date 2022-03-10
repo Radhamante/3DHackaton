@@ -14,6 +14,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import { QuestionsComponent } from './questions/questions.component';
 import {MatCardModule} from "@angular/material/card";
 import { QuestionItemComponent } from './question-item/question-item.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -21,19 +22,20 @@ import { QuestionItemComponent } from './question-item/question-item.component';
     QuestionsComponent,
     QuestionItemComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    NgbModule,
-    MatIconModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatCardModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        NgbModule,
+        MatIconModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatDividerModule,
+        MatCardModule,
+        MatListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
