@@ -4,6 +4,7 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Category} from "../../model/category";
 import {CategoriesConstants} from "../../model/categories-constants";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight"
+import { MenuItemConstants } from 'src/model/menu-item-constants';
 
 @Component({
   selector: 'app-question-item',
@@ -15,11 +16,16 @@ export class QuestionItemComponent implements OnInit {
   public category: Category = CategoriesConstants.getById(this.categoryId);
   constructor(private router: Router, private route: ActivatedRoute) { }
   public chevronRight: any = faChevronRight;
+  public workingItems: any[] = MenuItemConstants.WORKING_ANIMATIONS;
 
   ngOnInit(): void {
   }
 
   selectQuestion(id: number) {
     this.router.navigate(["/question/"+id])
+  }
+
+  getIsNotWorkingAnimation(id: any) {
+    return MenuItemConstants.getIsNotWorkingAnimation(id);
   }
 }
