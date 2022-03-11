@@ -49,5 +49,18 @@ export class MenuItemStepConstants {
     MenuItemStepConstants.REMOVE_HEADLIGHTE,
     MenuItemStepConstants.REMOVE_HEADLIGHTF,
   ];
+
+  public static USE_HANDLE = new MenuItemStep(1, "Enlever les boulons", "Utilisez la clé" +
+    " N°4 pour désserer les boulons de la roue avant.", 0.03);
+  public static POP_UP_TRUNK = new MenuItemStep(2, "Enlever les boulons", "Utilisez la clé" +
+    " N°4 pour désserer les boulons de la roue avant.", 2.4);
+  public static POP_UP_TRUNKB = new MenuItemStep(3, "Enlever les boulons", "Utilisez la clé" +
+    " N°4 pour désserer les boulons de la roue avant.", 4.75);
+
+  public static TRUNK_OPENING = [
+    MenuItemStepConstants.USE_HANDLE,
+    MenuItemStepConstants.POP_UP_TRUNK,
+    MenuItemStepConstants.POP_UP_TRUNKB,
+  ];
 }
 

@@ -28,7 +28,7 @@ export class MenuItemConstants {
 
   //OTHER
   //THIS IS A WORKING ANIMATION !
-  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", null,  "/assets/models/twoshotanimrightcoffre");
+  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", MenuItemStepConstants.TRUNK_OPENING,  "/assets/models/twoshotanimrightcoffre.glb");
   //NON CREATED ANIMATIONS
   public static CHANGE_REARVIEW_MIRROR = new MenuItem(13, "Changer un rétroviseur", null, "");
   public static CONTACT_US = new MenuItem(14, "Nous contacter", null, "");
