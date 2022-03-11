@@ -63,6 +63,9 @@ h2 {
   height: 50px;
   color: white;
 }
+.btn-tan:focus {
+  background-color: $tan!important;
+}
 
 @media screen and (max-width: 992px) {
   .mat-progress-bar {
@@ -110,5 +113,5 @@ h2 {
 }
 
 .btn-tan:hover {
-  background-color: $tanLight;
+  background-color: $tanHover;
 }
