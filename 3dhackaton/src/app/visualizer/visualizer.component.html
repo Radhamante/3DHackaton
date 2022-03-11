@@ -6,14 +6,14 @@
 
 
     <div class="mainVisualizer">
-      <app-cube [testInput]="currentStep"></app-cube>
+      <app-cube  (loading)="isLoading = $event" [testInput]="currentStep"></app-cube>
     </div>
 
     <div class="buttons">
-      <button class="btn btn-tan leftButton" (click)="previousStep()" [disabled]="currentStepIndex === 0">
+      <button class="btn btn-tan leftButton" (click)="previousStep()" [disabled]="currentStepIndex === 0 || isLoading">
         <fa-icon [icon]="chevronLeft"></fa-icon> Étape précédente
        </button>
-      <button class="btn btn-tan" (click)="nextStep() " [disabled]="currentStepIndex == menuItem.steps.length-1">Étape suivante
+      <button class="btn btn-tan" (click)="nextStep() " [disabled]="currentStepIndex == menuItem.steps.length-1 ||isLoading">Étape suivante
         <fa-icon [icon]="chevronRight"></fa-icon></button>
     </div>
 

@@ -16,6 +16,7 @@ export class VisualizerComponent implements OnInit {
   public currentStep: any = this.menuItem.steps[0];
   public chevronRight: any = faChevronRight;
   public chevronLeft: any = faChevronLeft;
+  public isLoading: boolean = false;
 
 
   constructor(private route: ActivatedRoute) {

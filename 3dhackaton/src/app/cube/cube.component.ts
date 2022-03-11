@@ -2,8 +2,10 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild
 } from '@angular/core';
@@ -31,7 +33,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
   public testInt: number = 0;
 
   @Input() testInput: any;
-
+  @Output() loading = new EventEmitter<boolean>();
   @ViewChild('canvas')
   private canvasRef!: ElementRef;
 
@@ -89,9 +91,11 @@ export class CubeComponent implements OnInit, AfterViewInit {
     if (changes && changes['testInput'] && changes['testInput'].previousValue) {
       console.log(changes['testInput'])
       if(changes['testInput'].previousValue['id'] < changes['testInput'].currentValue['id']){
+        this.loading.emit(true);
         this.nextAnim();
       } else if(changes['testInput'].previousValue['id'] > changes['testInput'].currentValue['id']) {
         this.prevAnim();
+        this.loading.emit(true);
       }
     }
   }
@@ -176,7 +180,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
      */
     const gltfLoader = new GLTFLoader()
     gltfLoader.load(
-      '/assets/models/twoshotanimright(8).glb',
+      '/assets/models/twoshotanimright.glb',
       (gltf) => {
         // Add to group
         this.scooterGroup.add(gltf.scene)
@@ -197,6 +201,8 @@ export class CubeComponent implements OnInit, AfterViewInit {
 
             if (this.direction == 1 && time > this.steps[this.stepIndex + this.direction]) {
               this.paused = true
+              this.loading.emit(false);
+
               if (this.stepIndex < this.steps.length - 1) {
                 this.stepIndex += 1
               }
@@ -204,6 +210,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
 
             if (this.direction == -1 && time < this.steps[this.stepIndex + this.direction]) {
               this.paused = true
+              this.loading.emit(false);
               if (this.stepIndex > 0) {
                 this.stepIndex -= 1
               }
