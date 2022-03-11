@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import {MenuItem} from "../../model/menu-item";
 import {MenuItemConstants} from "../../model/menu-item-constants";
 
@@ -13,6 +14,8 @@ export class VisualizerComponent implements OnInit {
   public menuItem: MenuItem = MenuItemConstants.getById(this.menuItemId);
   public currentStepIndex: number = 0;
   public currentStep: any = this.menuItem.steps[0];
+  public chevronRight: any = faChevronRight;
+  public chevronLeft: any = faChevronLeft;
 
 
   constructor(private route: ActivatedRoute) {

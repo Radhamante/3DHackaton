@@ -83,13 +83,14 @@ h2 {
   }
   .btn-tan {
     width: 155px;
+    font-size: 14px;
   }
 
 }
 
 @media screen and (min-width: 728px) and (max-width: 992px) {
   .btn-tan {
-    width: 280px;
+    width: 310px;
     font-size: 28px;
   }
   .description {
@@ -102,7 +103,7 @@ h2 {
 
 @media screen and  (max-width: 366px) {
   .btn-tan {
-    width: 120px;
+    width: 130px;
     font-size: 12px;
   }
 
