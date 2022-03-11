@@ -66,7 +66,7 @@ export class MenuItemStepConstants {
   public static WHEELING = new MenuItemStep(1, "Mettre le scooter en Y", "Levez le scooter en utilisant l'accélérateur, Accélérez à fond, gardez l'équilibre, pour redescendre utilisez le frein légèrement.",
     0.03);
   public static WHEELING_ONGOING = new MenuItemStep(2, "Mettre le scooter en Y", "Levez le scooter en utilisant l'accélérateur, Accélérez à fond, gardez l'équilibre, pour redescendre utilisez le frein légèrement.",
-    12);
+    20);
 
   public static DO_WHEELING = [
     MenuItemStepConstants.WHEELING,

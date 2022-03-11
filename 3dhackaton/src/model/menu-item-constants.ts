@@ -35,7 +35,8 @@ export class MenuItemConstants {
   //NON CREATED ANIMATIONS
   public static CHANGE_REARVIEW_MIRROR = new MenuItem(13, "Changer un rétroviseur", null, "");
   public static CONTACT_US = new MenuItem(14, "Nous contacter", null, "");
-  public static WHEELING = new MenuItem(15, "Mettre le scooter en Y", MenuItemStepConstants.DO_WHEELING, "/assets/models/twoshotanimrightenYgiga.glb");
+  public static WHEELING = new MenuItem(15, "Mettre le scooter en Y", MenuItemStepConstants.DO_WHEELING, "/assets/models/twoshotanimrightenYgiga.glb",
+    new THREE.Vector3(130, 60, -10), new THREE.Vector3(0, 65, 0));
   public static WHEEL = [
     MenuItemConstants.REMOVE_FRONT_WHEEL,
     MenuItemConstants.REMOVE_REAR_WHEEL,
