@@ -1,7 +1,17 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import * as THREE from "three"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import {
+  GLTFLoader
+} from 'three/examples/jsm/loaders/GLTFLoader.js'
+import {
+  OrbitControls
+} from "three/examples/jsm/controls/OrbitControls";
 
 // let paused = false
 // let steps = [0.01,2.4, 4.75]
@@ -19,42 +29,30 @@ export class CubeComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas')
   private canvasRef!: ElementRef;
 
-  @ViewChild('prevAnim')
-  private prevAnimRef!: ElementRef;
-  @ViewChild('nextAnim')
-  private nextAnimRef!: ElementRef;
+  public fieldOfView: number = 75;
+  public nearClippingPlane: number = 1;
+  public farClippingPlane: number = 400;
 
-  public prevAnimEnable = true
-  public nextAnimEnable = false
-
-  @Input() public rotationSpeedX: number = 0.05
-  @Input() public rotationSpeedY: number = 0.01
-  @Input() public size: number = 20
-  @Input() public texture: string =   "/assets/texture.jpg"
-
-  @Input() public cameraZ: number = 50;
-  @Input() public fieldOfView: number = 75;
-  @Input("nearClipping") public nearClippingPlane: number = 1;
-  @Input("farClipping") public farClippingPlane: number = 1000;
+  public cameraLookAt = new THREE.Vector3(0, 25, 55);
+  public cameraPosition = new THREE.Vector3(120, 75, 130);
+  public cameraMinZoom = 10
+  public cameraMaxZoom = 200
 
   private camera!: THREE.PerspectiveCamera;
-  private get canvas() :HTMLCanvasElement {
+  private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
   }
   private renderer!: THREE.WebGLRenderer
   private scene!: THREE.Scene;
-  
-  private control!: OrbitControls;
-  private controlNextPos!: any;
 
   private scooterGroup = new THREE.Group()
 
   private paused = true
-  public steps = [0.03, 2.4, 4.75]
+  public steps = [0.03, 2.4, 4.8, 7.2, 9.6, 12, 14.35]
   public stepIndex = 0
   private direction = 1
 
-  constructor() { }
+  constructor() {}
   ngAfterViewInit(): void {
     this.createscene()
     this.startRenderingLoop()
@@ -73,115 +71,120 @@ export class CubeComponent implements OnInit, AfterViewInit {
     this.direction = -1
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  private createscene () {
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
+  private createscene() {
+    /**
+     * Renderer
+     */
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: this.canvas
+    });
 
-    // Scene
+    /**
+     * Scene
+     */
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xEEEEEE)
 
     /**
      * Sizes
      */
-    const sizes = {width:window.innerWidth,height:window.innerHeight}
+    const sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
 
-    window.addEventListener('resize', () =>
-    {
-        // Save sizes
-        sizes.width = window.innerWidth
-        sizes.height = window.innerHeight
+    /**
+     * Resize
+     */
+    window.addEventListener('resize', () => {
+      // Save sizes
+      sizes.width = this.canvas.parentElement!.clientWidth
+      sizes.height = this.canvas.parentElement!.clientHeight
 
-        // Update renderer
-        this.renderer.setSize(sizes.width, sizes.height)
+      // Update renderer
+      this.renderer.setSize(sizes.width, sizes.height)
 
-        // Update camera
-        this.camera.aspect = sizes.width / sizes.height
-        this.camera.updateProjectionMatrix()
+      // Update camera
+      this.camera.aspect = sizes.width / sizes.height
+      this.camera.updateProjectionMatrix()
     })
 
 
-    /** Lights **/
+    /**
+     * Light
+     */
     const ambientLight = new THREE.AmbientLight(0xffffff, 1)
     this.scene.add(ambientLight)
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
     directionalLight.position.z = 50
+    directionalLight.position.y = 50
+    directionalLight.position.x = 50
     this.scene.add(directionalLight)
 
-    //Camera
+    /**
+     * Camera
+     */
     const canvaBounding = this.canvas.getBoundingClientRect()
-    this.camera = new THREE.PerspectiveCamera (
+    this.camera = new THREE.PerspectiveCamera(
       this.fieldOfView,
-      canvaBounding.width/canvaBounding.height,
-      0.1,
-      400
+      canvaBounding.width / canvaBounding.height,
+      this.nearClippingPlane,
+      this.farClippingPlane
     )
-    this.camera.position.x = 120;
-    this.camera.position.y = 75;
-    this.camera.position.z = 130;
+    this.camera.position.x = this.cameraPosition.x;
+    this.camera.position.y = this.cameraPosition.y;
+    this.camera.position.z = this.cameraPosition.z;
 
-    // Controls
-    const controls = new OrbitControls( this.camera, this.renderer.domElement);
-    controls.minDistance = 10;
-    controls.maxDistance = 200;
+    /**
+     * Controls
+     */
+    const controls = new OrbitControls(this.camera, this.renderer.domElement);
+    controls.minDistance = this.cameraMinZoom;
+    controls.maxDistance = this.cameraMaxZoom;
     controls.enablePan = false;
-    controls.target.set( 0, 25, 55 );
+    controls.target = this.cameraLookAt;
     controls.update();
-    this.control = controls
 
-    // MODEL
+    /**
+     * Load GLTF model
+     */
     const gltfLoader = new GLTFLoader()
     gltfLoader.load(
-      '/assets/models/twoshotanimright(6).glb',
+      '/assets/models/twoshotanimright(8).glb',
       (gltf) => {
+        // Add to group
         this.scooterGroup.add(gltf.scene)
 
+        // Start animation
         let clock: THREE.Clock = new THREE.Clock();
-        let mixer = new THREE.AnimationMixer( gltf.scene );
-        
-        console.log(gltf.animations[1])
-        
-        gltf.animations.forEach( ( clip ) => {
-          mixer.clipAction( clip ).play();
-          console.log(clip)
+        let mixer = new THREE.AnimationMixer(gltf.scene);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
 
-          mixer.addEventListener( 'loop', ( e ) => {
-            console.log(clip)
-            console.log("loop")
-            this.stepIndex = 0
-          } );
-
+          // Animation loop 
           const animate = () => {
             requestAnimationFrame(animate);
             const delta = clock.getDelta();
             mixer.update(delta);
 
-            const time = mixer.clipAction( clip ).time
-            
-            if(this.direction == 1 && time > this.steps[this.stepIndex + this.direction]){
+            const time = mixer.clipAction(clip).time
+
+            if (this.direction == 1 && time > this.steps[this.stepIndex + this.direction]) {
               this.paused = true
-              if(this.stepIndex < this.steps.length -1){
+              if (this.stepIndex < this.steps.length - 1) {
                 this.stepIndex += 1
-                this.prevAnimEnable = false
-              }else{
-                this.nextAnimEnable = true
               }
             }
 
-            if(this.direction == -1 && time < this.steps[this.stepIndex + this.direction]){
+            if (this.direction == -1 && time < this.steps[this.stepIndex + this.direction]) {
               this.paused = true
-              if(this.stepIndex > 0){
+              if (this.stepIndex > 0) {
                 this.stepIndex -= 1
-                this.nextAnimEnable = false
-              }else{
-                this.prevAnimEnable = true
               }
             }
-            
-            console.log(this.stepIndex)
 
             mixer.clipAction(clip).paused = this.paused
             mixer.timeScale = this.direction
@@ -195,23 +198,21 @@ export class CubeComponent implements OnInit, AfterViewInit {
         console.log(error)
       }
     )
+    // Add to scene
     this.scene.add(this.scooterGroup)
-    this.scooterGroup.scale.set(1,1,1)
+    this.scooterGroup.scale.set(1, 1, 1)
     this.scooterGroup.position.x = 0
     this.scooterGroup.position.y = 0
-    
   }
 
-  private startRenderingLoop () {
-    // Renderer
-    // Use canvas element in template
-    
+  private startRenderingLoop() {
     this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight )
-    let component: CubeComponent = this;
-    function render () {
+    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight)
+    const component: CubeComponent = this;
+
+    function render() {
       requestAnimationFrame(render);
-      component.renderer.render(component. scene, component.camera);
+      component.renderer.render(component.scene, component.camera);
     }
     render()
   }
