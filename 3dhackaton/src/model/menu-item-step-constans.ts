@@ -25,42 +25,39 @@ export class MenuItemStepConstants {
   ];
 
 
-  public static UNBOLT_HEADLIGHT_FRAME = new MenuItemStep(1, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 0.03);
-  public static REMOVE_HEADLIGHT = new MenuItemStep(2, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 2.4);
-  public static REMOVE_HEADLIGHTB = new MenuItemStep(3, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 4.8);
-  public static REMOVE_HEADLIGHTC = new MenuItemStep(4, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 7.2);
-  public static REMOVE_HEADLIGHTD = new MenuItemStep(5, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 9.6);
-  public static REMOVE_HEADLIGHTE = new MenuItemStep(6, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 12);
-  public static REMOVE_HEADLIGHTF = new MenuItemStep(7, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 14.35);
+  public static STABILIZE_SCOOT = new MenuItemStep(1, "Stabiliser le scooter", "A l'aide de la béquille" +
+    " stabilisez le scooter.", 0.03);
+  public static REMOVE_GLASS = new MenuItemStep(2, "Enlever la lunette avant", "En appuyant sur les extremités de la lunette, tirer la lunette vers soi. Si la lunette résiste, tournez légerment dans le sens anti-horaire avec de tirer." , 2.4);
+  public static UNSCREW_BULB = new MenuItemStep(3, "Dévisser l'ampoule", "Attendre que l'ampoule ne soit plus chaude!" +
+    " Puis, à l'aide d'un chiffon, tournez l'ampoule dans le sens anti-horaire.", 4.8);
+  public static LAY_BULB = new MenuItemStep(4, "Déposer l'ampoule",
+    " Déposer délicatement l'ancienne ampoule sur le côté du scooter.", 7.2);
+  public static TAKE_BULB = new MenuItemStep(5, "Prendre la nouvelle ampoule",
+    "Prendre délicatement la nouvelle ampoule.", 9.6);
+  public static SCREW_BULB = new MenuItemStep(6, "Visser la nouvelle ampoule",
+    "Placez la nouvelle ampoule dans la zone ZA8. Puis tournez dans le sens horaire jusqu'à l'enfoncement de l'ampoule.", 12);
+  public static PUT_GLASS = new MenuItemStep(7, "Remettre la lunette", "Replacez la lunette en appuyant légèrement sur les extrémités.", 14.35);
 
   public static HEADLIGHT_CHANGING = [
-    MenuItemStepConstants.UNBOLT_HEADLIGHT_FRAME,
-    MenuItemStepConstants.REMOVE_HEADLIGHT,
-    MenuItemStepConstants.REMOVE_HEADLIGHTB,
-    MenuItemStepConstants.REMOVE_HEADLIGHTC,
-    MenuItemStepConstants.REMOVE_HEADLIGHTD,
-    MenuItemStepConstants.REMOVE_HEADLIGHTE,
-    MenuItemStepConstants.REMOVE_HEADLIGHTF,
+    MenuItemStepConstants.STABILIZE_SCOOT,
+    MenuItemStepConstants.REMOVE_GLASS,
+    MenuItemStepConstants.UNSCREW_BULB,
+    MenuItemStepConstants.LAY_BULB,
+    MenuItemStepConstants.TAKE_BULB,
+    MenuItemStepConstants.SCREW_BULB,
+    MenuItemStepConstants.PUT_GLASS,
   ];
 
-  public static USE_HANDLE = new MenuItemStep(1, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 0.03);
-  public static POP_UP_TRUNK = new MenuItemStep(2, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 2.4);
-  public static POP_UP_TRUNKB = new MenuItemStep(3, "Enlever les boulons", "Utilisez la clé" +
-    " N°4 pour désserer les boulons de la roue avant.", 4.75);
+  public static STABILIZE = new MenuItemStep(1, "Stabiliser le scooter", "Après avoir stabiliser le scooter à l'aide des béquilles," +
+    " se diriger vers l'arrière du scooter.", 0.03);
+  public static PULL_HANDLE = new MenuItemStep(2, "Tirer la poignée", "A l'arrière du coffre," +
+    " tirez légèrement la poignée vers soi.", 2.4);
+  public static POP_UP_TRUNK = new MenuItemStep(3, "Lever le coffre", "Levez le coffre vers le haut pour accéder au contenu de coffre.", 4.75);
 
   public static TRUNK_OPENING = [
-    MenuItemStepConstants.USE_HANDLE,
+    MenuItemStepConstants.STABILIZE,
+    MenuItemStepConstants.PULL_HANDLE,
     MenuItemStepConstants.POP_UP_TRUNK,
-    MenuItemStepConstants.POP_UP_TRUNKB,
   ];
 }
 
