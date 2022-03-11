@@ -14,7 +14,7 @@ export class MenuItemConstants {
 
   //LIGHTING RELATED MENU ITEMS
   //THIS IS A WORKING ANIMATION !
-  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare", null, "");
+  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare", MenuItemStepConstants.HEADLIGHT_CHANGING, "/assets/models/twoshotanimrightampule.glb");
   //NON CREATED ANIMATIONS
   public static CHANGE_BLINKER = new MenuItem(7, "Changer le clignotant", null, "");
   public static CHANGE_BRAKE_LIGHT = new MenuItem(8, "Changer les feux stop", null, "");
@@ -28,7 +28,7 @@ export class MenuItemConstants {
 
   //OTHER
   //THIS IS A WORKING ANIMATION !
-  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", null, "");
+  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", null,  "/assets/models/twoshotanimrightcoffre");
   //NON CREATED ANIMATIONS
   public static CHANGE_REARVIEW_MIRROR = new MenuItem(13, "Changer un rétroviseur", null, "");
   public static CONTACT_US = new MenuItem(14, "Nous contacter", null, "");
