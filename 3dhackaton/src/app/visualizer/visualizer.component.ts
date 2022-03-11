@@ -28,7 +28,6 @@ export class VisualizerComponent implements OnInit {
 
   nextStep(): void {
     this.currentStepIndex++;
-    console.log(this.currentStepIndex)
     this.currentStep = this.menuItem.steps[this.currentStepIndex];
   }
   previousStep(): void{

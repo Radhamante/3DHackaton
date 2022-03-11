@@ -91,7 +91,6 @@ export class CubeComponent implements OnInit, AfterViewInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes && changes['currStep'] && changes['currStep'].previousValue) {
-      console.log(changes['currStep'])
       if(changes['currStep'].previousValue['id'] < changes['currStep'].currentValue['id']){
         this.loading.emit(true);
         this.nextAnim();
@@ -128,7 +127,6 @@ export class CubeComponent implements OnInit, AfterViewInit {
      */
     window.addEventListener('resize', () => {
       // Save sizes
-      console.log(this.canvas.parentElement!.clientWidth)
       sizes.width = this.canvas.parentElement!.clientWidth
       sizes.height = this.canvas.parentElement!.clientHeight
 
@@ -226,8 +224,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
       },
       undefined,
       (error) => {
-        console.log("Screen error")
-        console.log(error)
+        error.log(error)
       }
     )
     // Add to scene
