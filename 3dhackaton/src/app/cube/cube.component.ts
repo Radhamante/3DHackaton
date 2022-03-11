@@ -41,8 +41,8 @@ export class CubeComponent implements OnInit, AfterViewInit {
   public nearClippingPlane: number = 1;
   public farClippingPlane: number = 400;
 
-  public cameraLookAt = new THREE.Vector3(0, 25, 55);
-  public cameraPosition = new THREE.Vector3(120, 75, 130);
+  public cameraLookAt: THREE.Vector3  = new THREE.Vector3(120, 75, 130);
+  public cameraPosition:  THREE.Vector3  = new THREE.Vector3(0, 25, 55);
   public cameraMinZoom = 10
   public cameraMaxZoom = 200
 
@@ -61,7 +61,8 @@ export class CubeComponent implements OnInit, AfterViewInit {
   public stepIndex = 0
   private direction = 1
 
-  constructor() {}
+  constructor() {
+  }
   ngAfterViewInit(): void {
     this.createscene()
     this.startRenderingLoop()
@@ -83,7 +84,10 @@ export class CubeComponent implements OnInit, AfterViewInit {
     this.direction = -1
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cameraLookAt = this.menuItem.cameraLookAt;
+    this.cameraPosition = this.menuItem.cameraPosition;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes && changes['currStep'] && changes['currStep'].previousValue) {

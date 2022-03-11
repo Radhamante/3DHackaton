@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import {MenuItem} from "./menu-item";
 import {MenuItemStepConstants} from "./menu-item-step-constans";
 
@@ -14,7 +15,8 @@ export class MenuItemConstants {
 
   //LIGHTING RELATED MENU ITEMS
   //THIS IS A WORKING ANIMATION !
-  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare", MenuItemStepConstants.HEADLIGHT_CHANGING, "/assets/models/twoshotanimrightampule.glb");
+  public static CHANGE_HEADLIGHT = new MenuItem(6, "Changer le phare", MenuItemStepConstants.HEADLIGHT_CHANGING, "/assets/models/twoshotanimrightampule.glb",
+    new THREE.Vector3(20, 100, 55), new THREE.Vector3(0, 90, 45));
   //NON CREATED ANIMATIONS
   public static CHANGE_BLINKER = new MenuItem(7, "Changer le clignotant", null, "");
   public static CHANGE_BRAKE_LIGHT = new MenuItem(8, "Changer les feux stop", null, "");
@@ -28,7 +30,8 @@ export class MenuItemConstants {
 
   //OTHER
   //THIS IS A WORKING ANIMATION !
-  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", MenuItemStepConstants.TRUNK_OPENING,  "/assets/models/twoshotanimrightcoffre.glb");
+  public static OPEN_TRUNK = new MenuItem(12, "Ouvrir le coffre", MenuItemStepConstants.TRUNK_OPENING,  "/assets/models/twoshotanimrightcoffre.glb",
+    new THREE.Vector3(30, 90, -70), new THREE.Vector3(0, 65, -60));
   //NON CREATED ANIMATIONS
   public static CHANGE_REARVIEW_MIRROR = new MenuItem(13, "Changer un rétroviseur", null, "");
   public static CONTACT_US = new MenuItem(14, "Nous contacter", null, "");

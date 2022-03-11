@@ -36,7 +36,7 @@ export class MenuItemStepConstants {
     "Prendre délicatement la nouvelle ampoule.", 9.6);
   public static SCREW_BULB = new MenuItemStep(6, "Visser la nouvelle ampoule",
     "Placez la nouvelle ampoule dans la zone ZA8. Puis tournez dans le sens horaire jusqu'à l'enfoncement de l'ampoule.", 12);
-  public static PUT_GLASS = new MenuItemStep(7, "Remettre la lunette", "Replacez la lunette en appuyant légèrement sur les extrémités.", 14.35);
+  public static PUT_GLASS = new MenuItemStep(7, "Remettre la lunette", "Replacez la lunette en appuyant légèrement sur les extrémités.", 14.39);
 
   public static HEADLIGHT_CHANGING = [
     MenuItemStepConstants.STABILIZE_SCOOT,
