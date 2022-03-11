@@ -30,9 +30,9 @@ import {
 })
 export class CubeComponent implements OnInit, AfterViewInit {
 
-  public testInt: number = 0;
+  @Input() currStep: any;
+  @Input() menuItem: any;
 
-  @Input() testInput: any;
   @Output() loading = new EventEmitter<boolean>();
   @ViewChild('canvas')
   private canvasRef!: ElementRef;
@@ -56,7 +56,8 @@ export class CubeComponent implements OnInit, AfterViewInit {
   private scooterGroup = new THREE.Group()
 
   private paused = true
-  public steps = [0.03, 2.4, 4.8, 7.2, 9.6, 12, 14.35]
+
+  public steps: any = []
   public stepIndex = 0
   private direction = 1
 
@@ -64,12 +65,9 @@ export class CubeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.createscene()
     this.startRenderingLoop()
-
-
-    this.testInput.addEventListener
-    /*this.testInput.onChange( ($event: any) => {
-        console.log($event);
-    });*/
+    this.menuItem.steps.forEach((step: any) => {
+      this.steps.push(step.duration)
+    })
   }
 
   pauseAnim(): void {
@@ -88,12 +86,12 @@ export class CubeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes && changes['testInput'] && changes['testInput'].previousValue) {
-      console.log(changes['testInput'])
-      if(changes['testInput'].previousValue['id'] < changes['testInput'].currentValue['id']){
+    if (changes && changes['currStep'] && changes['currStep'].previousValue) {
+      console.log(changes['currStep'])
+      if(changes['currStep'].previousValue['id'] < changes['currStep'].currentValue['id']){
         this.loading.emit(true);
         this.nextAnim();
-      } else if(changes['testInput'].previousValue['id'] > changes['testInput'].currentValue['id']) {
+      } else if(changes['currStep'].previousValue['id'] > changes['currStep'].currentValue['id']) {
         this.prevAnim();
         this.loading.emit(true);
       }
