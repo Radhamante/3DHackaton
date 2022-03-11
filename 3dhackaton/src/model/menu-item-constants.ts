@@ -35,7 +35,7 @@ export class MenuItemConstants {
   //NON CREATED ANIMATIONS
   public static CHANGE_REARVIEW_MIRROR = new MenuItem(13, "Changer un rétroviseur", null, "");
   public static CONTACT_US = new MenuItem(14, "Nous contacter", null, "");
-
+  public static WHEELING = new MenuItem(15, "Mettre le scooter en Y", MenuItemStepConstants.DO_WHEELING, "/assets/models/twoshotanimrightenYgiga.glb");
   public static WHEEL = [
     MenuItemConstants.REMOVE_FRONT_WHEEL,
     MenuItemConstants.REMOVE_REAR_WHEEL,
@@ -60,6 +60,7 @@ export class MenuItemConstants {
     MenuItemConstants.CHANGE_REARVIEW_MIRROR,
     MenuItemConstants.OPEN_TRUNK,
     MenuItemConstants.CONTACT_US,
+    MenuItemConstants.WHEELING,
   ]
 
 
@@ -78,12 +79,15 @@ export class MenuItemConstants {
     MenuItemConstants.CHECK_ALIGNMENT,
     MenuItemConstants.CHANGE_REARVIEW_MIRROR,
     MenuItemConstants.OPEN_TRUNK,
-    MenuItemConstants.CONTACT_US
+    MenuItemConstants.CONTACT_US,
+    MenuItemConstants.WHEELING
   ];
   public static WORKING_ANIMATIONS = [
     MenuItemConstants.REMOVE_FRONT_WHEEL,
     MenuItemConstants.CHANGE_HEADLIGHT,
-    MenuItemConstants.OPEN_TRUNK
+    MenuItemConstants.OPEN_TRUNK,
+    MenuItemConstants.WHEELING
+
   ];
 
   public static getById(id: number) {

@@ -25,6 +25,7 @@ export class MenuItemStepConstants {
   ];
 
 
+  //HEADLIGHT_CHANGING
   public static STABILIZE_SCOOT = new MenuItemStep(1, "Stabiliser le scooter", "A l'aide de la béquille" +
     " stabilisez le scooter.", 0.03);
   public static REMOVE_GLASS = new MenuItemStep(2, "Enlever la lunette avant", "En appuyant sur les extremités de la lunette, tirer la lunette vers soi. Si la lunette résiste, tournez légerment dans le sens anti-horaire avec de tirer." , 2.4);
@@ -48,6 +49,7 @@ export class MenuItemStepConstants {
     MenuItemStepConstants.PUT_GLASS,
   ];
 
+  //TRUNK_OPENING
   public static STABILIZE = new MenuItemStep(1, "Stabiliser le scooter", "Après avoir stabiliser le scooter à l'aide des béquilles," +
     " se diriger vers l'arrière du scooter.", 0.03);
   public static PULL_HANDLE = new MenuItemStep(2, "Tirer la poignée", "A l'arrière du coffre," +
@@ -59,5 +61,16 @@ export class MenuItemStepConstants {
     MenuItemStepConstants.PULL_HANDLE,
     MenuItemStepConstants.POP_UP_TRUNK,
   ];
+
+  //WHEELING
+  public static WHEELING = new MenuItemStep(1, "Mettre le scooter en Y", "Levez le scooter en utilisant l'accélérateur, Accélérez à fond, gardez l'équilibre, pour redescendre utilisez le frein légèrement.",
+    0.03);
+  public static WHEELING_ONGOING = new MenuItemStep(2, "Mettre le scooter en Y", "Levez le scooter en utilisant l'accélérateur, Accélérez à fond, gardez l'équilibre, pour redescendre utilisez le frein légèrement.",
+    12);
+
+  public static DO_WHEELING = [
+    MenuItemStepConstants.WHEELING,
+    MenuItemStepConstants.WHEELING_ONGOING
+  ]
 }
 
