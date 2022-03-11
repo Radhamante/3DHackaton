@@ -224,7 +224,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
       },
       undefined,
       (error) => {
-        error.log(error)
+        console.log(error)
       }
     )
     // Add to scene

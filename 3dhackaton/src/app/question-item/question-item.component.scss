@@ -114,3 +114,8 @@ h1 {
     width: 90vw !important;
   }
 }
+
+.mat-list-item-disabled {
+  background-color: $tanLight!important;
+  cursor: not-allowed;
+}
