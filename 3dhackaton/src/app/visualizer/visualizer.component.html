@@ -12,7 +12,7 @@
     </div>
     <div class="buttons">
       <button class="btn btn-tan leftButton" (click)="previousStep()" [disabled]="currentStepIndex === 0">Étape précédente</button>
-      <button class="btn btn-tan" (click)="nextStep() " [disabled]="currentStepIndex == menuItem.steps.length">Étape suivante</button>
+      <button class="btn btn-tan" (click)="nextStep() " [disabled]="currentStepIndex == menuItem.steps.length-1">Étape suivante</button>
     </div>
   </div>
 </div>
