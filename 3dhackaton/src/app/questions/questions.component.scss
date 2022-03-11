@@ -113,3 +113,10 @@ h2 {
     margin-right: 23vw;
   }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .boxes{
+    margin-left: 24vw;
+    margin-right: 24vw;
+  }
+}
