@@ -178,7 +178,7 @@ export class CubeComponent implements OnInit, AfterViewInit {
      */
     const gltfLoader = new GLTFLoader()
     gltfLoader.load(
-      '/assets/models/twoshotanimright.glb',
+      this.menuItem.animationPath,
       (gltf) => {
         // Add to group
         this.scooterGroup.add(gltf.scene)
