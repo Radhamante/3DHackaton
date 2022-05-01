@@ -10,22 +10,29 @@ import {Subscription} from "rxjs";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
   id: Subscription | undefined;
+
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+
   constructor(
     private router: Router,
     private authService: AuthService,
   ) {
-    this.loginForm = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl(''),
-    });
+
   }
   ngOnInit(): void {
   }
 
-  loginUser(): void {
-    this.authService.login(this.loginForm.value).subscribe(
+  onSubmit(): void {
+    this.authService.login(this.form.value).subscribe(
       () => {
         sessionStorage.setItem('isConnected', 'true');
         this.authService.emitAuthStatus(true);
