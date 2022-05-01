@@ -5,6 +5,7 @@ import {ForumComponent} from "./forum/forum.component";
 import {PostComponent} from "./post/post.component";
 import {SearchComponent} from "./search/search.component";
 import {AccountComponent} from "./account/account.component";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path : 'post/:id', component: PostComponent },
   { path : 'search', component: SearchComponent },
   { path : 'account/:id', component: AccountComponent },
-  { path: '**', redirectTo: '' },
+  { path : 'account', component: AccountComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

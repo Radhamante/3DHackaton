@@ -7,8 +7,10 @@
     <div class="search-input">
       <form class="example-form">
         <mat-form-field class="example-full-width" appearance="fill">
-          <input type="text"
-                 placeholder="Search"
+          <mat-icon style="padding: 0">search</mat-icon>
+          <input style="padding-left: 5%"
+                  type="text"
+                 placeholder="Search in codeup..."
                  matInput
                  [formControl]="myControl"
                  [matAutocomplete]="auto">
@@ -22,8 +24,8 @@
     </div>
 
     <div class="align-right">
-      <button mat-raised-button color="accent">Login</button>
-      <button mat-raised-button color="accent">Sign up</button>
+      <button style="background-color: orange" mat-raised-button color="accent" (click)="openLogin()">Login</button>
+      <button style="background-color: #d3d305" mat-raised-button color="accent" (click)="openSignin()">Sign up</button>
     </div>
 
   </mat-toolbar>
