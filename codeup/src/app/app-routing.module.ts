@@ -6,6 +6,7 @@ import {PostComponent} from "./post/post.component";
 import {SearchComponent} from "./search/search.component";
 import {AccountComponent} from "./account/account.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {CreatePostComponent} from "./create-post/create-post.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path : 'search', component: SearchComponent },
   { path : 'account/:id', component: AccountComponent },
   { path : 'account', component: AccountComponent },
+  { path : 'post-create', component: CreatePostComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

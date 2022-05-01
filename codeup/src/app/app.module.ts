@@ -31,6 +31,8 @@ import { SigninComponent } from './signin/signin.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {HttpClientModule} from "@angular/common/http";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
 
 @NgModule({
   declarations: [
@@ -43,32 +45,34 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AccountComponent,
     LoginComponent,
     SigninComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreatePostComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    NgbModule,
-    MatIconModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatCardModule,
-    MatListModule,
-    FontAwesomeModule,
-    MatStepperModule,
-    MatProgressBarModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDialogModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        NgbModule,
+        MatIconModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatDividerModule,
+        MatCardModule,
+        MatListModule,
+        FontAwesomeModule,
+        MatStepperModule,
+        MatProgressBarModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatDialogModule,
+        HttpClientModule,
+        AngularEditorModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
