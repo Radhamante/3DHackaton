@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from "../entities/User";
 import {Forum} from "../entities/Forum";
@@ -9,13 +9,22 @@ import {Forum} from "../entities/Forum";
 })
 export class ForumService {
 
-  constructor(private httpclient: HttpClient) {}
+  constructor(private httpclient: HttpClient) {
+  }
 
 
   public getForums(limit: number, offset: number): Observable<Array<Forum>> {
     return this.httpclient.get<Array<Forum>>(
-      'localhost:8080/forums/all/limit/' + limit + '/offset/' + offset
+      'http://localhost:8080/forums/all/limit/' + limit + '/offset/' + offset
     );
   }
 
+  public loginTest(): Observable<string> {
+    const params = {
+      userName: "test",
+      password: "testaaaa"
+    }
+    return this.httpclient.post<string>(
+      'http://localhost:8080/login', params)
+  }
 }

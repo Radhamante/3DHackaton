@@ -13,13 +13,13 @@ export class AuthService {
 
   login(value: object): Observable<string> {
     return this.httpclient.post<string>(
-      'localhost:8080/login',
+      'http://localhost:8080/login',
       value
     );
   }
 
   register(value: object): Observable<any> {
-    return this.httpclient.post('localhost:8080/register', value);
+    return this.httpclient.post('http://localhost:8080/register', value);
   }
 
   emitAuthStatus(state: boolean): void {
@@ -28,7 +28,7 @@ export class AuthService {
 
   getCurrentUser(): Observable<User> {
     const user = this.httpclient.get<User>(
-      'localhost:8080/users/current'
+      'http://localhost:8080/users/current'
     );
     user.subscribe((us) => {
       if (us != null) {
@@ -51,7 +51,7 @@ export class AuthService {
 
   logout(): void {
     this.httpclient
-      .post<any>('localhost:8080/logout', '')
+      .post<any>('http://localhost:8080/logout', '')
       .subscribe(() => {
         sessionStorage.setItem('isConnected', 'false');
         sessionStorage.removeItem('userid');

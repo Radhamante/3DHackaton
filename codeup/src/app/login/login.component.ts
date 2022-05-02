@@ -10,38 +10,44 @@ import {AuthService} from "../shared/services/authService";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
   id: Subscription | undefined;
-
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = '';
-
-  form: any = {
-    username: null,
-    email: null,
-    password: null
-  };
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    private userService: AuthService,
   ) {
-
+    this.loginForm = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl(''),
+    });
   }
+
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.authService.login(this.form.value).subscribe(
+    this.loginUser();
+  }
+
+  loginUser(): void {
+    this.userService.login(this.loginForm.value).subscribe(
       () => {
         sessionStorage.setItem('isConnected', 'true');
-        this.authService.emitAuthStatus(true);
+        this.userService.emitAuthStatus(true);
+        /*this.toastr.success(
+          'You are successfully logged in',
+          'Login successful!'
+        );*/
         return this.router.navigate(['account']).then(() => {
           window.location.reload();
         });
       },
       (error) => {
-        console.log('error when login')
+        /*this.toastr.error(
+          'Your username/password is wrong',
+          'Login failed!'
+        );*/
       }
     );
   }

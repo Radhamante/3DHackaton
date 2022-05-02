@@ -21,6 +21,8 @@ export class RecommendationComponent implements OnInit {
   }
 
   getForums(): void {
+    this.forumService.loginTest().subscribe();
+
     this.forumService.getForums(this.limit, this.offset).subscribe((data) => {
       console.log(data);
       this.loadMore = data.length === this.limit;
