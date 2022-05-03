@@ -1,6 +1,6 @@
 .recommendation-title {
   width: 100%;
-  padding: 0;
+  padding: 25px;
   padding-left: 5px;
   background-color: #e5e5f7;
   color: white;
@@ -10,4 +10,10 @@
 
 .item {
   margin-left: 5px;
+  margin-bottom: 25px;
+}
+
+.item a {
+  text-decoration: none;
+  color: black;
 }

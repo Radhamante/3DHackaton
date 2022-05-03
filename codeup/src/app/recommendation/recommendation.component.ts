@@ -11,8 +11,8 @@ export class RecommendationComponent implements OnInit {
 
   private limit : number = 5;
   private offset : number = 0;
-  private forums : Array<Forum> = [];
-  private loadMore: boolean = true;
+  public forums : Array<Forum> = [];
+  public loadMore: boolean = true;
 
   constructor(private forumService: ForumService) { }
 
@@ -20,11 +20,9 @@ export class RecommendationComponent implements OnInit {
     this.getForums();
   }
 
-  getForums(): void {
-    this.forumService.loginTest().subscribe();
+  private getForums(): void {
 
     this.forumService.getForums(this.limit, this.offset).subscribe((data) => {
-      console.log(data);
       this.loadMore = data.length === this.limit;
       (data.forEach(item => {
         this.forums.push(item);
@@ -34,6 +32,7 @@ export class RecommendationComponent implements OnInit {
 
   getMore() : void {
     this.offset ++;
+    this.getForums();
   }
 
 }

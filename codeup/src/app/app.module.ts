@@ -29,10 +29,11 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpRequestInterceptor} from "./shared/implementation/HttpRequestInterceptor";
 
 @NgModule({
   declarations: [
@@ -73,7 +74,9 @@ import {AngularEditorModule} from "@kolkov/angular-editor";
         HttpClientModule,
         AngularEditorModule
     ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

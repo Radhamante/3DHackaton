@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
           'You are successfully logged in',
           'Login successful!'
         );*/
-        return this.router.navigate(['account']).then(() => {
+        /*return this.router.navigate(['account']).then(() => {
           window.location.reload();
-        });
+        });*/
       },
       (error) => {
         /*this.toastr.error(

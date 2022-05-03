@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, map, Observable} from 'rxjs';
 import {User} from "../entities/User";
 
 @Injectable({
@@ -11,15 +11,35 @@ export class AuthService {
 
   constructor(private httpclient: HttpClient) {}
 
-  login(value: object): Observable<string> {
-    return this.httpclient.post<string>(
+  login(value: object): Observable<any> {
+    return this.httpclient.post<any>(
       'http://localhost:8080/login',
-      value
+        value
+      , {observe: 'response'}).pipe(
+      map(
+        data => {
+          const token = data.headers.get("Authorization");
+          console.log(data);
+          /*console.log(username);
+          sessionStorage.setItem(AUTHENTICATED_USER, username);
+          sessionStorage.setItem(TOKEN, `Bearer ${token}`);*/
+          return data;
+        }
+      )
     );
   }
 
   register(value: object): Observable<any> {
-    return this.httpclient.post('http://localhost:8080/register', value);
+    const params = {
+
+      email:"test@test.com",
+      password:"testaaaa",
+      userName:"test",
+      firstName:"test",
+      lastName:"test"
+    }
+
+    return this.httpclient.post('http://localhost:8080/users/register', params);
   }
 
   emitAuthStatus(state: boolean): void {

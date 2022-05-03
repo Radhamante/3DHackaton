@@ -18,13 +18,4 @@ export class ForumService {
       'http://localhost:8080/forums/all/limit/' + limit + '/offset/' + offset
     );
   }
-
-  public loginTest(): Observable<string> {
-    const params = {
-      userName: "test",
-      password: "testaaaa"
-    }
-    return this.httpclient.post<string>(
-      'http://localhost:8080/login', params)
-  }
 }
