@@ -34,6 +34,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {HttpRequestInterceptor} from "./shared/implementation/HttpRequestInterceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import {HttpRequestInterceptor} from "./shared/implementation/HttpRequestInterce
         FormsModule,
         MatDialogModule,
         HttpClientModule,
-        AngularEditorModule
+        AngularEditorModule,
+        MatSnackBarModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}

@@ -19,14 +19,12 @@ export class AppComponent {
   openSignin() {
     const dialogRef = this.dialog.open(SigninComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
   openLogin() {
     const dialogRef = this.dialog.open(LoginComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

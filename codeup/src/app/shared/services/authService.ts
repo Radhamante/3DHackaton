@@ -15,17 +15,6 @@ export class AuthService {
     return this.httpclient.post<any>(
       'http://localhost:8080/login',
         value
-      , {observe: 'response'}).pipe(
-      map(
-        data => {
-          const token = data.headers.get("Authorization");
-          console.log(data);
-          /*console.log(username);
-          sessionStorage.setItem(AUTHENTICATED_USER, username);
-          sessionStorage.setItem(TOKEN, `Bearer ${token}`);*/
-          return data;
-        }
-      )
     );
   }
 
@@ -58,15 +47,8 @@ export class AuthService {
     return user;
   }
 
-  authListener(): Observable<any> {
-    let isConnected = false;
-    this.getCurrentUser().subscribe((user) => {
-      if (user && user.id) {
-        isConnected = true;
-      }
-      this.emitAuthStatus(isConnected);
-    });
-    return this.authEvent.asObservable();
+  localConnect() {
+    sessionStorage.setItem('isConnected', 'true');
   }
 
   logout(): void {
