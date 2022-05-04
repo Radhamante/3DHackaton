@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   { path : 'my-account', component: AccountComponent },
   { path : 'post-create', component: CreatePostComponent },
+  { path: '404', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

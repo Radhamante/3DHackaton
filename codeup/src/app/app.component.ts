@@ -24,7 +24,6 @@ export class AppComponent {
   ngOnInit(){
 
     this.authService.userEvent.subscribe(value => {
-      console.log('inside')
       this.loggedUser = this.authService.loggedUser;
     });
 
