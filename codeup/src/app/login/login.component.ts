@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
   loginUser(): void {
     this.userService.login(this.loginForm.value).subscribe(
       () => {
-        this.userService.localConnect();
         this.snackBar.open("Connected !", "Good job !", {
           duration: 3000,
           panelClass: ['success-snackbar']

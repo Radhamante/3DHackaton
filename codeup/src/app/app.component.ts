@@ -3,6 +3,8 @@ import {FormControl} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import {SigninComponent} from "./signin/signin.component";
 import {MatDialog} from "@angular/material/dialog";
+import {AuthService} from "./shared/services/authService";
+import {User} from "./shared/entities/User";
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,23 @@ export class AppComponent {
   title = 'Codeup';
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
-
-  constructor(public dialog: MatDialog) {
+  public isLogged:boolean = false;
+  public loggedUser: User|undefined;
+  constructor(public dialog: MatDialog, private authService: AuthService) {
   }
+
+
+  ngOnInit(){
+
+    this.authService.userEvent.subscribe(value => {
+      console.log('inside')
+      this.loggedUser = this.authService.loggedUser;
+    });
+
+    this.authService.getCurrentUser();
+
+  }
+
   openSignin() {
     const dialogRef = this.dialog.open(SigninComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -26,5 +42,9 @@ export class AppComponent {
     const dialogRef = this.dialog.open(LoginComponent);
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  logout() {
+    this.authService.logout()
   }
 }

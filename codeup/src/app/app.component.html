@@ -24,8 +24,15 @@
     </div>
 
     <div class="align-right">
-      <button style="background-color: orange" mat-raised-button color="accent" (click)="openLogin()">Login</button>
-      <button style="background-color: #d3d305" mat-raised-button color="accent" (click)="openSignin()">Sign up</button>
+      <button *ngIf="!loggedUser" style="background-color: orange" mat-raised-button color="accent" (click)="openLogin()">Login</button>
+      <button *ngIf="!loggedUser" style="background-color: #d3d305" mat-raised-button color="accent" (click)="openSignin()">Sign up</button>
+      <div ngbDropdown class="d-inline-block" *ngIf="loggedUser">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Hi {{loggedUser.username}} !</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <a href="/account/{{loggedUser.id}}"><button ngbDropdownItem>My account</button></a>
+          <button ngbDropdownItem (click)="logout()">Logout</button>
+        </div>
+      </div>
     </div>
 
   </mat-toolbar>

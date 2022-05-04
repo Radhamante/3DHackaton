@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, map, Observable} from 'rxjs';
 import {User} from "../entities/User";
 
@@ -7,8 +7,9 @@ import {User} from "../entities/User";
   providedIn: 'root'
 })
 export class AuthService {
-  private authEvent = new BehaviorSubject<boolean>(false);
-
+  public authEvent = new BehaviorSubject<boolean>(false);
+  public userEvent = new BehaviorSubject<boolean>(false);
+  public loggedUser: User| undefined;
   constructor(private httpclient: HttpClient) {}
 
   login(value: object): Observable<any> {
@@ -23,9 +24,9 @@ export class AuthService {
 
       email:"test@test.com",
       password:"testaaaa",
-      userName:"test",
-      firstName:"test",
-      lastName:"test"
+      username:"test",
+      firstname:"test",
+      lastname:"test"
     }
 
     return this.httpclient.post('http://localhost:8080/users/register', params);
@@ -33,6 +34,9 @@ export class AuthService {
 
   emitAuthStatus(state: boolean): void {
     this.authEvent.next(state);
+    if(state) {
+      this.getCurrentUser();
+    }
   }
 
   getCurrentUser(): Observable<User> {
@@ -41,23 +45,21 @@ export class AuthService {
     );
     user.subscribe((us) => {
       if (us != null) {
-        sessionStorage.setItem('userid', String(us.id));
+        this.loggedUser = us;
+        this.userEvent.next(true);
       }
     });
     return user;
-  }
-
-  localConnect() {
-    sessionStorage.setItem('isConnected', 'true');
   }
 
   logout(): void {
     this.httpclient
       .post<any>('http://localhost:8080/logout', '')
       .subscribe(() => {
-        sessionStorage.setItem('isConnected', 'false');
-        sessionStorage.removeItem('userid');
+        this.loggedUser = undefined;
         this.emitAuthStatus(false);
+        this.userEvent.next(false);
+        location.reload();
       });
   }
 

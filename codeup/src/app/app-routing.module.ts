@@ -7,6 +7,7 @@ import {SearchComponent} from "./search/search.component";
 import {AccountComponent} from "./account/account.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {CreatePostComponent} from "./create-post/create-post.component";
+import {UserResolver} from "./resolvers/userResolver";
 
 
 const routes: Routes = [
@@ -15,8 +16,14 @@ const routes: Routes = [
   { path : 'comment/:id', component: ForumComponent },
   { path : 'post/:id', component: PostComponent },
   { path : 'search', component: SearchComponent },
-  { path : 'account/:id', component: AccountComponent },
-  { path : 'account', component: AccountComponent },
+  {
+    path : 'account/:id',
+    component: AccountComponent,
+    resolve: {
+      userResolver: UserResolver
+    },
+  },
+  { path : 'my-account', component: AccountComponent },
   { path : 'post-create', component: CreatePostComponent },
   { path: '**', component: NotFoundComponent },
 ];

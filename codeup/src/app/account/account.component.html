@@ -4,7 +4,7 @@
       <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                                                                                    width="150px"
                                                                                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-        class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span>
+        class="font-weight-bold">username</span><span class="text-black-50">email</span><span> </span>
       </div>
     </div>
     <div class="col-md-9 border-right">
@@ -12,16 +12,26 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h4 class="text-right">Profile Settings</h4>
         </div>
-        <div class="row mt-2">
-          <div class="col-md-6"><label class="labels">Firstname</label><input type="text" class="form-control"
-                                                                              placeholder="first name" value=""></div>
-          <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control" value=""
-                                                                             placeholder="last name"></div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" value=""
-                                                                           placeholder="last name"></div>
-        </div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" *ngIf="isSameUser">
+          <div class="row mt-2">
+            <div class="col-md-12"><label class="labels">Username</label>
+              <input type="text" class="form-control" placeholder="first name" formControlName="username" value=""></div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6"><label class="labels">Firstname</label>
+              <input type="text" class="form-control" placeholder="first name" formControlName="firstname" value=""></div>
+            <div class="col-md-6"><label class="labels">Lastname</label>
+              <input type="text" class="form-control" value="" formControlName="lastname" placeholder="last name"></div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12"><label class="labels">Email</label>
+              <input type="text" class="form-control" value="" placeholder="last name" formControlName="email"></div>
+          </div>
+          <br>
+          <button type="submit"  mat-raised-button color="accent"
+                  style="background-color: orange; float: right"
+                  [disabled]="!userForm.valid">Update my account</button>
+        </form>
         <div class="d-flex align-items-center mb-3">
           <h4 class="text-right" style="margin-top: 40px">Friend list</h4>
         </div>
@@ -41,7 +51,7 @@
                     </div>
                   </div>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
         </div>
